@@ -54,13 +54,13 @@ RUN apt-get update && \
 		apt-mark hold locales && \
 		apt-get install -y --no-install-recommends build-essential postgresql-server-dev-16 && \
 		git clone https://github.com/pgvector/pgvector.git && \
-        cd pgvector && \
+                cd pgvector && \
 		make clean && \
 		make OPTFLAGS="" && \
 		make install && \
 		mkdir /usr/share/doc/pgvector && \
 		cp LICENSE README.md /usr/share/doc/pgvector && \
-		rm -r /tmp/pgvector && \
+		rm -r ../pgvector && \
 		apt-get remove -y build-essential postgresql-server-dev-16 && \
 		apt-get autoremove -y && \
 		apt-mark unhold locales && \
