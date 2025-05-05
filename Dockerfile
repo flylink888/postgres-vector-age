@@ -50,10 +50,6 @@ COPY --from=build /usr/share/postgresql/16/extension/age--1.5.0.sql /usr/share/p
 COPY --from=build /usr/share/postgresql/16/extension/age.control /usr/share/postgresql/16/extension/
 COPY docker-entrypoint-initdb.d/00-create-extension-age.sql /docker-entrypoint-initdb.d/00-create-extension-age.sql
 
-
-# 安装pgvector
-COPY pgvector-master /tmp/pgvector
-
 RUN apt-get update && \
 		apt-mark hold locales && \
 		apt-get install -y --no-install-recommends build-essential postgresql-server-dev-16 && \
