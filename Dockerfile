@@ -21,7 +21,7 @@ FROM postgres:16 AS build
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
-       git bison \
+       git ca-certificates bison \
        build-essential \
        flex \
        postgresql-server-dev-16
@@ -35,7 +35,7 @@ FROM postgres:16
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
-    locales git
+    locales git ca-certificates
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
