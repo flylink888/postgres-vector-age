@@ -16,6 +16,4 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        docker login --username=${{ secrets.USER }} --password=${{ secrets.PWD }} ${{ secrets.REGISTRY }}
         docker build . --file Dockerfile --tag postgres:16va
-        docker push ${{ secrets.REGISTRY }}/flylink/postgres:16va
